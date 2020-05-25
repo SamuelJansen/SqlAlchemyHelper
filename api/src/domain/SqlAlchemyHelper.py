@@ -1,14 +1,19 @@
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, scoped_session
+from sqlalchemy.orm import sessionmaker, scoped_session, relationship
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Table, Column, Integer, String, ForeignKey, UnicodeText, MetaData
+from sqlalchemy import Table, Column, Integer, String, ForeignKey, UnicodeText, MetaData, Sequence
+
+UnicodeText = UnicodeText
 
 Table = Table
 Column = Column
 Integer = Integer
 String = String
+
+relationship = relationship
+
+Sequence = Sequence
 ForeignKey = ForeignKey
-UnicodeText = UnicodeText
 MetaData = MetaData
 
 Base = declarative_base()
