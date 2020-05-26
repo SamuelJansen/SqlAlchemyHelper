@@ -1,9 +1,10 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session, relationship
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Table, Column, Integer, String, ForeignKey, UnicodeText, MetaData, Sequence
+from sqlalchemy import Table, Column, Integer, String, ForeignKey, UnicodeText, MetaData, Sequence, DateTime
 
 UnicodeText = UnicodeText
+DateTime = DateTime
 
 Table = Table
 Column = Column
@@ -29,7 +30,7 @@ class SqlAlchemyHelper:
         self.name = name
         self.type = type
         self.extension = extension
-        self.engine = create_engine(f'{self.type}:{self.TRIPLE_BAR}{self.name}.{self.extension}', echo=True)
+        self.engine = create_engine(f'{self.type}:{self.TRIPLE_BAR}{self.name}.{self.extension}', echo=False)
         self.session = scoped_session(sessionmaker(self.engine)) ###- sessionmaker(bind=self.engine)()
         Base.metadata.bind = self.engine
 
